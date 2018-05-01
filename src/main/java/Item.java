@@ -134,7 +134,7 @@ public class Item
 
 	public String toString()
 	{
-		return itemNumber + " " + name + " " + quantity;
+		return "Item Number: " + itemNumber + "\nItem Name: " + name + "\nItem Quantity: " + quantity;
 	}
 
 }

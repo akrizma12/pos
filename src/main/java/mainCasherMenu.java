@@ -1,4 +1,6 @@
 import java.awt.Insets;
+import java.sql.Date;
+import java.util.Calendar;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
@@ -12,7 +14,8 @@ public class mainCasherMenu
 	{
 		JFrame frame = new JFrame("Casher System - Welcome " + userName);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
+		
 		JTabbedPane tp = new JTabbedPane();
 		tp.addTab("Sales", new SalePanel());
 		tp.addTab("Return", new ReturnPanel());

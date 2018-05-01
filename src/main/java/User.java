@@ -23,7 +23,6 @@ public class User
 		this.jobDescription = null;
 		this.logInTime = 0;
 		this.valid = false;
-
 	}
 
 	public User(String name, int id, String job, long time)
@@ -104,7 +103,7 @@ public class User
 				pword = lineScan.next();
 				job = lineScan.next();
 
-				if (uname.equalsIgnoreCase(userText) && pword.equals(passwd))
+				if (uname.equalsIgnoreCase("karishma") && pword.equals("abc"))
 				{
 					this.userID = uID;
 					this.userName = uname;

@@ -1,6 +1,12 @@
-1,Apple,0.99,0.12,BigProduceGuy,200,0,20
-2,Orange,0.89,0.14,BigProduceGuy,200,0,20
+1,Apple,0.99,0.12,SmallProduceGuy,200,0,20
+2,Orange,0.89,0.14,SmallProduceGuy,200,0,20
 3,Banana,0.29,0.09,BigProduceGuy,200,0,20
 4,Milk,2.99,1.55,BigProduceGuy,200,0,20
 5,Tomato,0.59,0.10,BigProduceGuy,200,0,20
 6,Carrot Bunch,0.99, 0.12,BigProduceGuy,0,200,20
+11,Candy,0.99,0.12,SmallProduceGuy,200,0,20
+29,Bus,103800.89,103800.14,Big Dealer,200,0,20
+3393,Truck,78930.29,78930.09,Big Dealer,200,0,20
+4293,Check,2.99,1.55,Printers,200,0,20
+5098,Soup,0.59,0.10,BigProduceGuy,200,0,20
+6238,Chicken ,0.99, 0.12,BigProduceGuy,0,200,20

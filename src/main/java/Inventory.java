@@ -61,6 +61,10 @@ public class Inventory
 		}
 	}
 
+	public NodeList<Item> getCurrentInventory() {
+		return inventory;
+	}
+
 	public void writeInventoryFile()
 	{
 		FileWriter fileOut;
