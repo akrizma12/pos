@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -157,20 +156,53 @@ public class OrderPanel extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if ((null == supplierNameTextField.getText()) || (supplierNameTextField.getText().equals(""))) {
+				String supplierName = supplierNameTextField.getText();
+				String itemNumber = itemNumTextField.getText();
+				String itemDesc = itemDescTextField.getText();
+				String quantity = quantityTextField.getText();
+
+				if ((null == supplierName) || (supplierName.equals(""))) {
 					textArea.setText("Supplier name is missing, cannot place order!");
-				} else if ((null == itemNumTextField.getText()) || (itemNumTextField.getText().equals(""))) {
+				} else if ((null == itemNumber) || (itemNumber.equals(""))) {
 					textArea.setText("Item number is missing, cannot place order!");
-				} else if ((null == itemDescTextField.getText()) || (itemDescTextField.getText().equals(""))) {
+				} else if ((null == itemDesc) || (itemDesc.equals(""))) {
 					textArea.setText("Item Description is missing, cannot place order!");
-				} else if ((null == quantityTextField.getText()) || (quantityTextField.getText().equals(""))) {
+				} else if ((null == quantity) || (quantity.equals(""))) {
 					textArea.setText("Quantity to order is missing, cannot place order!");
 				} else {
-					// TODO Place Order
+					int itemNumberIntValue = 0;
+					int quantityIntValue = 0;
+					try {
+						itemNumberIntValue = Integer.valueOf(itemNumber);
+					} catch (NumberFormatException nfe) {
+						textArea.setText("Enter item number correctly, unexpected characters entered. Expecting an integer.");
+						return;
+					}
+					try {
+						quantityIntValue = Integer.valueOf(quantity);
+					} catch (NumberFormatException nfe) {
+						textArea.setText("Enter item number correctly, unexpected characters entered. Expecting an integer.");
+						return;
+					}
+					placeOrder(itemNumberIntValue, quantityIntValue);
 				}
 				
 			}
 		});
 	}
 
+	private void placeOrder(int itemNumber, int quantity) {
+		NodeList<Item> currentInventory = inventory.getCurrentInventory();
+		Node<Item> item = currentInventory.find(itemNumber);
+		if (null == item) {
+			textArea.setText("Item not found in inventory, add item to the inventory to be able to order.");
+		} else {
+			updateAsExistingItemInventory(itemNumber, quantity);
+		}
+		
+	}
+
+	private void updateAsExistingItemInventory(int itemNumber, int quantity) {
+		inventory.updateQuantity(itemNumber, quantity);
+	}
 }
